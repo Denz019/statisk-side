@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FashionRUs – Nike</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site_header">
+        <a class="logo" href="index.html">Fashion<span>R</span>Us</a>
+        <nav class="main_nav">
+            <a href="index.html">Categories</a>
+            <a href="index.html">Brands</a>
+            <a href="index.html">Seasons</a>
+        </nav>
+    </header>
+
+    <main class="wrapper">
+        <h1>Nike</h1> <!-- Senere: navnet på den valgte kategori -->
+
+        <!-- Data fra https://kea-alt-del.dk/t7/api/products
+         Alle kort har samme opbygning. Forskelle styres med klasser på <a>:
+         .nedsat = rabatpris, .udsolgt = udsolgt (begge kan sidde på samme kort) -->
+        <div class="product_list_container">
+
+            <!-- 1: normalt produkt -->
+            <a class="product_card" href="product.html">
+                <div class="img_wrap">
+                    <img src="https://kea-alt-del.dk/t7/images/webp/640/1163.webp"
+                        alt="Sahara Team India Fanwear Round Neck Jersey">
+                    <span class="soldout_label">Sold Out</span> <!-- vises kun med .udsolgt -->
+                </div>
+                <h2>Sahara Team India Fanwear Round Neck Jersey</h2>
+                <p class="subtle">Tshirts | Nike</p>
+                <div class="price_block">
+                    <p class="price_prev">Prev. DKK 1595,-</p> <!-- vises kun med .nedsat -->
+                    <p class="price_current">DKK 1595,-</p>
+                    <span class="discount_badge">-34%</span> <!-- vises kun med .nedsat -->
+                </div>
+                <span class="read_more">Read More</span>
+            </a>
+
+            <!-- 2: produkt på tilbud -->
+            <a class="product_card nedsat" href="product.html">
+                <div class="img_wrap">
+                    <img src="https://kea-alt-del.dk/t7/images/webp/640/1573.webp" alt="Blue T20 Indian Cricket Jersey">
+                    <span class="soldout_label">Sold Out</span>
+                </div>
+                <h2>Blue T20 Indian Cricket Jersey</h2>
+                <p class="subtle">Tshirts | Nike</p>
+                <div class="price_block">
+                    <p class="price_prev">Prev. DKK 1595,-</p>
+                    <p class="price_current">DKK 1560,-</p>
+                    <span class="discount_badge">-34%</span>
+                </div>
+                <span class="read_more">Read More</span>
+            </a>
+
+            <!-- 3: udsolgt produkt -->
+            <a class="product_card udsolgt" href="product.html">
+                <div class="img_wrap">
+                    <img src="https://kea-alt-del.dk/t7/images/webp/640/1570.webp" alt="Blue T20 Indian Cricket Jersey">
+                    <span class="soldout_label">Sold Out</span>
+                </div>
+                <h2>Blue T20 Indian Cricket Jersey</h2>
+                <p class="subtle">Tshirts | Nike</p>
+                <div class="price_block">
+                    <p class="price_prev">Prev. DKK 1595,-</p>
+                    <p class="price_current">DKK 1595,-</p>
+                    <span class="discount_badge">-34%</span>
+                </div>
+                <span class="read_more">Read More</span>
+            </a>
+
+            <!-- 4: udsolgt OG på tilbud -->
+            <a class="product_card udsolgt nedsat" href="product.html">
+                <div class="img_wrap">
+                    <img src="https://kea-alt-del.dk/t7/images/webp/640/1525.webp" alt="Puma rygsæk">
+                    <span class="soldout_label">Sold Out</span>
+                </div>
+                <h2>Blue T20 Indian Cricket Jersey</h2>
+                <p class="subtle">Tshirts | Nike</p>
+                <div class="price_block">
+                    <p class="price_prev">Prev. DKK 1595,-</p>
+                    <p class="price_current">DKK 1560,-</p>
+                    <span class="discount_badge">-34%</span>
+                </div>
+                <span class="read_more">Read More</span>
+            </a>
+
+        </div>
+    </main>
+</body>
+
+</html>

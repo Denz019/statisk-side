@@ -1,0 +1,264 @@
+/* ---------- Grundlæggende ---------- */
+:root {
+  --red: #e0301e;
+  --grey: #949494;
+  --light: #f2f2f2;
+  --text: #1f1f1f;
+  --max: 1100px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  color: var(--text);
+  line-height: 1.4;
+}
+a {
+  color: inherit;
+}
+a:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+h1 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  margin: 1.5rem 0 1rem;
+  letter-spacing: -0.5px;
+}
+.wrapper {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+/* ---------- Header (bruges på alle sider) ---------- */
+.site_header {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  display: flex; /* flex: logo til venstre, menu til højre */
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  text-decoration: none;
+}
+.logo span {
+  color: var(--red);
+  display: inline-block;
+  transform: scaleX(-1);
+} /* spejlvendt R */
+.main_nav {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- index.html: kategorier ---------- */
+.category_list_container {
+  display: grid; /* responsivt grid: så mange kolonner som der er plads til */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.category_card {
+  background: var(--grey);
+  color: #fff;
+  padding: 1.6rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.category_card:hover {
+  background: #6f6f6f;
+}
+
+/* ---------- productlist.html: produktkort ---------- */
+.product_list_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+.product_card {
+  display: flex; /* flex inde i grid: billede øverst, tekst under */
+  flex-direction: column;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.img_wrap {
+  position: relative;
+  background: var(--light);
+}
+.img_wrap img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+}
+.product_card h2 {
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0;
+}
+.subtle {
+  color: var(--grey);
+  font-size: 0.8rem;
+  margin: 0;
+}
+.read_more {
+  text-decoration: underline;
+  font-size: 0.85rem;
+}
+
+/* Priser. .price_prev og .discount_badge er skjult, medmindre produktet har .nedsat */
+.price_block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+}
+.price_block p {
+  margin: 0;
+}
+.price_prev,
+.discount_badge {
+  display: none;
+}
+.nedsat .price_prev {
+  display: block;
+  text-decoration: line-through;
+  color: var(--grey);
+}
+.nedsat .price_current::before {
+  content: "Now ";
+}
+.nedsat .discount_badge {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+/* Udsolgt. .soldout_label er skjult, medmindre produktet har .udsolgt */
+.soldout_label {
+  display: none;
+}
+.udsolgt .soldout_label {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #6b6b6b;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+}
+.udsolgt .img_wrap img {
+  opacity: 0.4;
+  filter: grayscale(1);
+}
+
+/* ---------- product.html: detaljer ---------- */
+.breadcrumb {
+  font-size: 0.75rem;
+  color: var(--grey);
+  margin: 0 0 1.5rem;
+}
+.product_layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (min-width: 850px) {
+  .product_layout {
+    grid-template-columns: 1fr 1fr 280px;
+  } /* billede | info | købsboks */
+}
+.product_info h1 {
+  margin-top: 0;
+}
+.product_info dl {
+  margin: 0 0 2rem;
+}
+.product_info dt {
+  font-weight: 700;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+.product_info dd {
+  margin: 0 0 0 1rem;
+  font-size: 0.9rem;
+}
+.brand_box h2 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+}
+.brand_box p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.buy_box {
+  background: #e4e4e4;
+  padding: 1.25rem;
+  display: grid;
+  gap: 0.9rem;
+  position: relative;
+}
+.buy_box h2 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+.buy_box label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+.buy_box select {
+  padding: 0.4rem;
+  font: inherit;
+}
+.buy_box button {
+  padding: 0.7rem;
+  font: inherit;
+  font-weight: 700;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.buy_box button:hover {
+  background: var(--text);
+  color: #fff;
+}
+.buy_box .soldout_label {
+  position: static;
+}
+.udsolgt .buy_box button {
+  opacity: 0.4;
+  pointer-events: none;
+} /* udsolgt: kan ikke købes */
+.udsolgt.product_layout .img_wrap img {
+  opacity: 0.4;
+  filter: grayscale(1);
+}
